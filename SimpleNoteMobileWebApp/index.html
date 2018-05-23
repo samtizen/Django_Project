@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Style -->
+    <link rel="stylesheet" type="text/css" href="lib/css/jquery.mobile-1.4.5.css" />
+    <link rel="stylesheet" type="text/css" href="lib/css/jquery.mobile.external-png-1.4.5.css" />
+    <link rel="stylesheet" type="text/css" href="lib/css/jquery.mobile.icons-1.4.5.css" />
+    <link rel="stylesheet" type="text/css" href="lib/css/jquery.mobile.inline-png-1.4.5.css" />
+    <link rel="stylesheet" type="text/css" href="lib/css/jquery.mobile.inline-svg-1.4.5.css" />
+    <link rel="stylesheet" type="text/css" href="lib/css/jquery.mobile.structure-1.4.5.css" />
+    <link rel="stylesheet" type="text/css" href="lib/css/jquery.mobile.theme-1.4.5.css" />
+
+	<link rel="stylesheet" type="text/css" href="lib/css/material-icons.css" />
+	
+    <!-- YOUR STYLE -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <!-- JS -->
+    <script src="lib/js/jquery.js"></script>
+    <!-- <script src="lib/js/tau.js"></script>-->
+    <script src="lib/js/jquery.mobile-1.4.5.js"></script>
+    <title>Tizen Web IDE - Template - Tizen - Tizen Web UI Framework - Multi Page</title>
+
+</head>
+
+<body>
+    <!-- Page -->
+    <div data-role="page" class="ui-page ui-page-active" id="notes-page-id">
+		<!-- Header -->
+        <div data-role="header" class="ui-header-color ui-header-relative">
+            <div class="ui-custom-btn-sm ui-custom-refresh-btn-sm refresh-btn-id">
+                <i class="material-icons md-28">refresh</i>
+                <span>Refresh</span>
+            </div>
+            <h1 style="font-size:1.4rem;font-weight:normal;">Notes</h1>
+        </div>
+        <!-- Content -->
+        <div role="main" class="contents-color ui-content">
+            <ul data-role="listview" data-inset="true" id="note-list-view-id"></ul>
+        </div>
+        <!-- Footer -->
+        <div data-role="footer" class="ui-footer-fixed footer-color">
+        	<div class="ui-grid-c center" style="text-align:center;">
+        		<div class="ui-block-a">
+                    <div class="ui-custom-btn-sm notes-page-btn-id">
+                        <i class="material-icons md-28">home</i>
+                        <span>All Notes</span>
+                    </div>
+                </div>     
+                <div class="ui-block-b">
+                    <div class="ui-custom-btn-sm my-notes-page-btn-id">
+                        <i class="material-icons md-28">list</i>
+                        <span>My Notes</span>
+                    </div>
+                </div>
+                <div class="ui-block-c">
+                    <div class="ui-custom-btn-sm ui-color-yellow create-note-page-btn-id">
+                        <i class="material-icons md-28">add</i>
+                        <span>Add Note</span>
+                    </div>
+                </div>
+                <div class="ui-block-d">
+                    <div class="ui-custom-btn-sm account-page-btn-id">
+                        <i class="material-icons md-28">person</i>
+                        <span>Account</span>
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </div>
+
+    <!-- Page -->
+    <div data-role="page" class="ui-page" id="my-notes-page-id">
+        <!-- Header -->
+        <div data-role="header" class="ui-header-color ui-header-relative">
+            <div class="ui-custom-btn-sm ui-custom-refresh-btn-sm refresh-btn-id">
+                <i class="material-icons md-28">refresh</i>
+                <span>Refresh</span>
+            </div>
+            <h1 style="font-size:1.4rem;font-weight:normal;">My Notes</h1>
+        </div>
+        <!-- Content -->
+        <div role="main" class="contents-color ui-content">
+        </div>
+        
+		<!-- Footer -->
+        <div data-role="footer" class="ui-footer-fixed footer-color">
+        	<div class="ui-grid-c center" style="text-align:center;">
+        		<div class="ui-block-a">
+                    <div class="ui-custom-btn-sm notes-page-btn-id">
+                        <i class="material-icons md-28">home</i>
+                        <span>All Notes</span>
+                    </div>
+                </div>     
+                <div class="ui-block-b">
+                    <div class="ui-custom-btn-sm my-notes-page-btn-id">
+                        <i class="material-icons md-28">list</i>
+                        <span>My Notes</span>
+                    </div>
+                </div>
+                <div class="ui-block-c">
+                    <div class="ui-custom-btn-sm ui-color-yellow create-note-page-btn-id">
+                        <i class="material-icons md-28">add</i>
+                        <span>Add Note</span>
+                    </div>
+                </div>
+                <div class="ui-block-d">
+                    <div class="ui-custom-btn-sm account-page-btn-id">
+                        <i class="material-icons md-28">person</i>
+                        <span>Account</span>
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </div>
+    
+    <!-- Page -->
+    <div data-role="page" class="ui-page" id="create-note-page-id">
+		<!-- Header -->
+        <div data-role="header" class="ui-header-color ui-header-relative">
+            <div class="ui-custom-btn-sm ui-custom-refresh-btn-sm refresh-btn-id">
+                <i class="material-icons md-28">refresh</i>
+                <span>Refresh</span>
+            </div>
+            <h1 style="font-size:1.4rem;font-weight:normal;">Create New Note</h1>
+        </div>
+        <!-- Content -->
+        <div role="main" class="contents-color ui-content">
+        </div>
+        <!-- Footer -->
+        <div data-role="footer" class="ui-footer-fixed footer-color">
+        	<div class="ui-grid-c center" style="text-align:center;">
+        		<div class="ui-block-a">
+                    <div class="ui-custom-btn-sm notes-page-btn-id">
+                        <i class="material-icons md-28">home</i>
+                        <span>All Notes</span>
+                    </div>
+                </div>     
+                <div class="ui-block-b">
+                    <div class="ui-custom-btn-sm my-notes-page-btn-id">
+                        <i class="material-icons md-28">list</i>
+                        <span>My Notes</span>
+                    </div>
+                </div>
+                <div class="ui-block-c">
+                    <div class="ui-custom-btn-sm ui-color-yellow create-note-page-btn-id">
+                        <i class="material-icons md-28">add</i>
+                        <span>Add Note</span>
+                    </div>
+                </div>
+                <div class="ui-block-d">
+                    <div class="ui-custom-btn-sm account-page-btn-id">
+                        <i class="material-icons md-28">person</i>
+                        <span>Account</span>
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </div>
+    
+    <!-- Page -->
+    <div data-role="page" class="ui-page" id="account-page-id">
+		<!-- Header -->
+        <div data-role="header" class="ui-header-color ui-header-relative">
+            <div class="ui-custom-btn-sm ui-custom-refresh-btn-sm refresh-btn-id">
+                <i class="material-icons md-28">refresh</i>
+                <span>Refresh</span>
+            </div>
+            <h1 style="font-size:1.4rem;font-weight:normal;">Account</h1>
+        </div>
+        <!-- Content -->
+        <div role="main" class="contents-color ui-content">
+        </div>
+        <!-- Footer -->
+        <div data-role="footer" class="ui-footer-fixed footer-color">
+        	<div class="ui-grid-c center" style="text-align:center;">
+        		<div class="ui-block-a">
+                    <div class="ui-custom-btn-sm notes-page-btn-id">
+                        <i class="material-icons md-28">home</i>
+                        <span>All Notes</span>
+                    </div>
+                </div>     
+                <div class="ui-block-b">
+                    <div class="ui-custom-btn-sm my-notes-page-btn-id">
+                        <i class="material-icons md-28">list</i>
+                        <span>My Notes</span>
+                    </div>
+                </div>
+                <div class="ui-block-c">
+                    <div class="ui-custom-btn-sm ui-color-yellow create-note-page-btn-id">
+                        <i class="material-icons md-28">add</i>
+                        <span>Add Note</span>
+                    </div>
+                </div>
+                <div class="ui-block-d">
+                    <div class="ui-custom-btn-sm account-page-btn-id">
+                        <i class="material-icons md-28">person</i>
+                        <span>Account</span>
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
+    <script src="js/mainApp.js"></script>
+    <script src="js/mainPage_Notes.js"></script>
+    <script src="js/mainPage_MyNotes.js"></script>
+    <script src="js/mainPage_CreateNote.js"></script>
+    <script src="js/mainPage_Account.js"></script>
+    <script>
+   
+    </script>
+
+</body>
+
+</html>

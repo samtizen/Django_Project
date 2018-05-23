@@ -1,0 +1,41 @@
+{% extends "bootstrap_base.html" %}
+
+{% load static %}
+
+{% block title %}Вход в систему{% endblock title %}
+
+{% block custom-content %}
+    <div class="container-centered">
+        <div class="card">
+            <article class="card-body">
+                {% if form.errors %}
+                    <p>Неверный логин или пароль. Попробуйте ещё раз.</p>
+                {% endif %}
+                <a href="{% url 'bootstrap-note:signup' %}" class="float-right btn btn-outline-primary">Регистрация</a>
+                <h4 class="card-title mb-4 mt-1">Вход</h4>
+                <form method="post" action="{% url 'bootstrap-note:login' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label>{{ form.username.label_tag }}</label>
+                        {{ form.username }}
+                    </div> <!-- form-group// -->
+                    <div class="form-group">
+                        <a class="float-right" href="{% url 'bootstrap-note:password_reset' %}">Забыли?</a>
+                        <label>{{ form.password.label_tag }}</label>
+                        {{ form.password }}
+                    </div> <!-- form-group// -->
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label> <input type="checkbox"> Сохранить пароль </label>
+                        </div> <!-- checkbox .// -->
+                    </div> <!-- form-group// -->
+                    <div class="form-group">
+                        <input type="submit" value="Войти" class="btn btn-primary btn-block" />
+                        <input type="hidden" name="next" value="{% if next %}{{ next }}{% else %}{% url 'bootstrap-note:list' %}{% endif %}" />
+                    </div> <!-- form-group// -->
+                 </form>
+            </article>
+        </div>
+    </div>
+    <a href="https://bootsnipp.com/snippets/j6r4X">Шаблон формы</a>
+{% endblock custom-content %}

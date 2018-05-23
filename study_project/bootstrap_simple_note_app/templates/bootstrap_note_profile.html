@@ -1,0 +1,35 @@
+{% extends "bootstrap_base.html" %}
+
+{% load static %}
+
+{% block title %}Профиль пользователя{% endblock title %}
+
+{% block custom-navbar %}
+    {% include "bootstrap_navbar.html" with current_page='profile' %}
+{% endblock custom-navbar %}
+
+{% block custom-content %}
+    <div class="container">
+        <form class="margin-10" method="POST" action="{% url 'bootstrap-note:profile' %}">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">{{ field.label_tag}}</label>
+                <div class="col-10">
+                    {% if field.errors %}
+                    <input class="form-control is-invalid" type="{{ field.field.widget.input_type }}" name="{{ field.name }}" value="{{ field.value }}" id="{{ field.auto_id }}" {% if field.field.required %} required {% endif%} >
+                        {% for error in field.errors %}
+                            <div class="invalid-feedback">{{ error|escape }}</div>
+                        {% endfor %}
+                    {% else %}
+                    <input class="form-control" type="{{ field.field.widget.input_type }}" name="{{ field.name }}" value="{{ field.value }}" id="{{ field.auto_id }}" {% if field.field.required %} required {% endif%} >
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+            <div class="form-group row">
+                <button type="submit" class="btn btn-primary offset-sm-5 col-sm-4">Изменить</button>
+            </div>
+        </form>
+    </div>
+{% endblock custom-content %}

@@ -1,0 +1,32 @@
+.container-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.container-centered .card {
+    width: 400px;
+    height: 400px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+}
+.margin-10 {
+    margin: 10px;
+}
+.margin-right-5 {
+    margin-right: 5px;
+}
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+.card-min-width {
+    min-width: 300px;
+}
+.form-search {
+    width: 300px;
+}

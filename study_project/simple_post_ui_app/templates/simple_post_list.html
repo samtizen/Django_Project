@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'simple_post_ui_app/css/style.css' %}">
+</head>
+<body>
+    <form class="search" method="get" action="{% url 'testapp_filter-simple-post' %}">
+        <label>Enter keyword for search: </label>
+        <input type="text" name="keyword">
+        <button type="submit">Search</button>
+    </form>
+    <a href="{% url 'testapp_create-simple-post' %}">Create New Post</a><br>
+    <a href="{% url 'testapp_create-simple-post-form' %}">Create New Post with Django Form</a><br>
+    <a href="{% url 'testapp_create-simple-post-form-class' %}">Create New Post with Django Class-based View and Form</a>
+    <div class="simple-post-items">
+        {% for item in simple_post_objects %}
+        <div class="simple-post-item">
+            <span>{{ forloop.counter }}</span>
+            <a href="{{ item.get_absolute_url }}">{{ item.header }}</a>
+            <span>{{ item.created }}</span>
+            <span>{{ item.updated }}</span>
+            <form  method="post" action="{% url 'testapp_delete-simple-post' item.id %}">
+                {% csrf_token %}
+                <input type="hidden" name="id" value="{{ item.id }}">
+                <button type="submit">&#10005;</button>
+            </form>
+        </div>
+        {% empty %}
+            There are no posts
+        {% endfor %}
+    </div>
+</body>
+</html>

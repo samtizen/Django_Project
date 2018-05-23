@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'simple_post_ui_app/css/style.css' %}">
+</head>
+<body>
+    <div>GET</div>
+    <form method="get" action="{% url 'testapp_view-http-response-get-post' %}">
+        <input type="text" placeholder="Header" name="header">
+        <textarea placeholder="Content" name="content"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    <div>POST</div>
+    <form method="post" action="{% url 'testapp_view-http-response-get-post' %}">
+        {% csrf_token %}
+        <input type="text" placeholder="Header" name="header">
+        <textarea placeholder="Content" name="content"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

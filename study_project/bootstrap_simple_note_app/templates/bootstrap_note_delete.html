@@ -1,0 +1,17 @@
+{% extends "bootstrap_base.html" %}
+
+{% load static %}
+
+{% block title %}Подтверждение удаления{% endblock title %}
+
+{% block custom-navbar %}
+    {% include "bootstrap_navbar.html" with current_page='' %}
+{% endblock custom-navbar %}
+
+{% block custom-content %}
+    <form class="col-6 margin-10" method="POST" action="{% url 'bootstrap-note:detail-delete' object.id %}">
+        {% csrf_token %}
+        <p>Вы действительно хотите удалить "{{ object.header }}"?</p>
+        <input class="btn btn-danger" type="submit" value="Удалить" />
+    </form>
+{% endblock custom-content %}

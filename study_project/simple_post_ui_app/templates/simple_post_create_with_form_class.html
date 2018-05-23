@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'simple_post_ui_app/css/style.css' %}">
+</head>
+<body>
+    <form class="create" method="post" action="{% url 'testapp_create-simple-post-form-class' %}" >
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends "bootstrap_base.html" %}
+
+{% load static %}
+
+{% block title %}Создание заметки{% endblock title %}
+
+{% block custom-navbar %}
+    {% include "bootstrap_navbar.html" with current_page='create-note' %}
+{% endblock custom-navbar %}
+
+{% block custom-content %}
+    <div class="container">
+        <form class=" margin-10" method="POST" action="{% url 'bootstrap-note:detail-create' %}">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">{{ field.label_tag}}</label>
+                <div class="col-sm-10">
+                    {{ field }}
+                    <!--<input class="form-control" type="text" value="" id="example-text-input">-->
+                </div>
+            </div>
+            {% endfor %}
+            <div class="form-group row">
+                <button type="submit" class="btn btn-primary offset-sm-5 col-sm-4">Добавить</button>
+            </div>
+        </form>
+    </div>
+{% endblock custom-content %}

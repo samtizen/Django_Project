@@ -1,0 +1,57 @@
+h1 {
+    color: green;
+    background-color: yellow;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+form.detail > *, form.create > * {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+form.detail > textarea, form.create > textarea {
+    resize: vertical;
+}
+
+form.search {
+    display: block;
+    width: 100%;
+}
+form.search > * {
+    display: inline-block;
+}
+
+
+div { margin-top: 15px; }
+
+div.simple-post-items {
+    width: 800px;
+}
+div.simple-post-item {
+    display: flex;
+    border: 1px solid rgb(210,210,210);
+}
+div.simple-post-item > * {
+    margin-left: 5px;
+}
+div.simple-post-item > span:nth-child(1) {
+    flex: 0 0 20px;
+    text-align: center;
+}
+div.simple-post-item > a {
+    flex: 1;
+}
+div.simple-post-item > span:nth-child(3) {
+    flex: 0 0 180px;
+    text-align: center;
+}
+div.simple-post-item > span:nth-child(4) {
+    flex: 0 0 180px;
+    text-align: center;
+}
+div.simple-post-item > form {
+    flex: 0 0 40px;
+}

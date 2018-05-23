@@ -1,0 +1,36 @@
+{% extends "bootstrap_base.html" %}
+
+{% load static %}
+
+{% block title %}Регистрация пользователя{% endblock title %}
+
+{% block custom-navbar %}
+    {% include "bootstrap_navbar.html" with current_page='' %}
+{% endblock custom-navbar %}
+
+{% block custom-content %}
+    <div class="container">
+        <form class="margin-10" method="POST" action="{% url 'bootstrap-note:signup' %}">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group row">
+                <label class="col-3 col-form-label">{{ field.label_tag}}</label>
+                <div class="col-9">
+                    <!--{{ field }}-->
+                    {% if field.errors %}
+                    <input class="form-control is-invalid" type="{{ field.field.widget.input_type }}" name="{{ field.name }}" value="{% if field.value is not None %}{{ field.value }}{% endif %}" id="{{ field.auto_id }}" required>
+                        {% for error in field.errors %}
+                            <div class="invalid-feedback">{{ error|escape }}</div>
+                        {% endfor %}
+                    {% else %}
+                    <input class="form-control" type="{{ field.field.widget.input_type }}" name="{{ field.name }}" value="{% if field.value is not None %}{{ field.value }}{% endif %}" id="{{ field.auto_id }}" required>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+            <div class="form-group row">
+                <button type="submit" class="btn btn-primary offset-sm-5 col-sm-4">Создать пользователя</button>
+            </div>
+        </form>
+    </div>
+{% endblock custom-content %}

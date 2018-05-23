@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'simple_post_ui_app/css/style.css' %}">
+</head>
+<body>
+    <a href="{% url 'testapp_simple-post-list' %}">Back to list</a>
+    <form class="detail" method="post" action="{% url 'testapp_update-simple-post' simple_post_object.id %}">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ simple_post_object.id }}">
+        <input type="text" placeholder="Header" name="header" value="{{ simple_post_object.header }}">
+        <textarea placeholder="Content" name="content">{{ simple_post_object.content }}</textarea>
+        <button type="submit">Update</button>
+    </form>
+    <form class="detail" method="post" action="{% url 'testapp_delete-simple-post' simple_post_object.id %}">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ simple_post_object.id }}">
+        <button type="submit">Delete</button>
+    </form>
+</body>
+</html>

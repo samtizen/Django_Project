@@ -1,0 +1,51 @@
+{% extends "bootstrap_base.html" %}
+
+{% load static %}
+
+{% block title %}Все заметки{% endblock title %}
+
+{% block custom-navbar %}
+    {% include "bootstrap_navbar.html" with current_page='notes' %}
+{% endblock custom-navbar %}
+
+{% block custom-content %}
+    <form class="form-group margin-10 row" method="GET" action="{% url 'bootstrap-note:list' %}">
+        <label class="col-form-label margin-right-5">Введите слово для поиска по заголовку: </label>
+        <input class="form-control form-search margin-right-5" type="text" name="keyword" value="{{ request.GET.keyword }}">
+        <button class="btn btn-success" type="submit">Поиск</button>
+    </form>
+    <div class="card-grid margin-10" style="visibility:hidden;">
+        {% for item in object_list %}
+        <div class="card col-2 card-min-width margin-bottom-10">
+            <div class="card-body">
+                <div class="clearfix">
+                    <h6 class="float-left" title="Дата публикации"><small>{{ item.created }}</small></h6>
+                    <h6 class="float-right" title="Пользователь"><small>{{ item.user }}</small></h6>
+                </div>
+                <h5 class="card-title">{{ item.header }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ item.location }}</h6>
+                <p class="card-text">{{ item.content }}</p>
+                {% if request.user == item.user %}
+                <a href="{% url 'bootstrap-note:detail-update' item.id %}" class="card-link">Редактировать</a>
+                <a href="{% url 'bootstrap-note:detail-delete' item.id %}" class="card-link">Удалить</a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock custom-content %}
+
+{% block custom-js %}
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".card-grid").masonry({
+                itemSelector: '.card',
+                horizontalOrder: true,
+                gutter: 10,
+            });
+
+            $(".card-grid").css("visibility", "visible");
+        });
+    </script>
+{% endblock custom-js %}

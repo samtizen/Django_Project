@@ -1,0 +1,57 @@
+.popup-content-padding {
+	padding: 18px 24px;
+}
+
+.ui-custom-btn-sm {
+	text-align: center;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+	cursor: pointer;
+	background-color: #007bff;
+    text-shadow: none;
+    color: white;
+}
+.ui-color-yellow {
+	background-color: #ffc107;
+    color: black;
+}
+.ui-custom-btn-sm > span {
+	display: block;
+	font-size: 12px;
+	font-weight: normal;
+}
+.ui-custom-btn-sm:active {
+	background-color: aquamarine;
+}
+.ui-header-color {
+	background-color: #007bff !important;
+	color: white !important;
+}
+.ui-header-relative {
+	position: relative;
+	margin-top: -1px;
+}
+.ui-content {
+	padding: 0px;
+}
+li *{
+	white-space: normal !important;	
+}
+.ui-custom-refresh-btn-sm {
+	display: block;
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+			transform: translateY(-50%);
+	left: 5px;
+}
+
+.ui-footer-fixed {
+	margin-bottom: -1px;
+}
+
+.md-18 { font-size: 18px; }
+.md-24 { font-size: 24px; }
+.md-28 { font-size: 28px; }
